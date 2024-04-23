@@ -2,13 +2,15 @@ let roundsPlayed = 0;
 const maxRounds = 5;
 
 let userResults = 0;
-let compuerResults = 0;
+let computerResults = 0;
 
 let rockBtn = document.querySelector(".rock");
 let scissorsBtn = document.querySelector(".scissors");
 let paperBtn = document.querySelector(".paper");
 
 let resetBtn = document.querySelector(".restart");
+
+let clearBtn = document.querySelector(".clear");
 
 function computerChoice() {
   let options = ["kámen", "nůžky", "papír"];
@@ -34,7 +36,7 @@ function playRound(tah) {
   ) {
     text.textContent = "Je to remíza";
     text.style.color = "#2266BC";
-    pickText.textContent = `Počítač vybral ${computerPick}`;
+    pickText.innerHTML = `<b>Ty x počítač</b> <br><br> ${tah} <b>x</b> ${computerPick}`;
   } else if (
     (tah === "nůžky" && computerPick === "papír") ||
     (tah === "kámen" && computerPick === "nůžky") ||
@@ -42,14 +44,14 @@ function playRound(tah) {
   ) {
     text.textContent = "Vyhráváš!";
     text.style.color = "green";
-    pickText.textContent = `Počítač vybral ${computerPick}`;
+    pickText.innerHTML = `<b>Ty x počítač</b> <br><br> ${tah} <b>x</b> ${computerPick}`;
 
     userResults++;
   } else {
     text.textContent = "Vyhrává počítač!";
     text.style.color = "red";
-    pickText.textContent = `Počítač vybral ${computerPick}`;
-    compuerResults++;
+    pickText.innerHTML = `<b>Ty x počítač</b> <br><br> ${tah} <b>x</b> ${computerPick}`;
+    computerResults++;
   }
 
   roundsPlayed++;
@@ -57,7 +59,7 @@ function playRound(tah) {
   roundCounter.textContent = `${roundsPlayed} kolo z ${maxRounds}`;
 
   scoreHuman.innerHTML = `Tvé score: <b>${userResults}</b>`;
-  scoreComputer.innerHTML = `Počítačovo score: <b>${compuerResults}</b>`;
+  scoreComputer.innerHTML = `Počítačovo score: <b>${computerResults}</b>`;
 
   if (roundsPlayed >= maxRounds) {
     text.textContent = "Výsledky";
@@ -74,16 +76,16 @@ function playRound(tah) {
     scoreComputer.textContent = "";
     scoreHuman.textContent = "";
 
-    if (compuerResults > userResults) {
-      roundCounter.innerHTML = `Prohrál jsi s počítačem <br><b>${compuerResults} > ${userResults}</b>`;
+    if (computerResults > userResults) {
+      roundCounter.innerHTML = `Prohrál jsi s počítačem <br><b>${computerResults} : ${userResults}</b>`;
       roundCounter.style.color = "red";
       roundCounter.style.fontSize = "1.3rem";
-    } else if (compuerResults < userResults) {
-      roundCounter.innerHTML = `Vyhrál jsi proti počítači <br><b>${userResults} > ${compuerResults}</b>`;
+    } else if (computerResults < userResults) {
+      roundCounter.innerHTML = `Vyhrál jsi proti počítači <br><b>${userResults} : ${computerResults}</b>`;
       roundCounter.style.color = "green";
       roundCounter.style.fontSize = "1.3rem";
     } else {
-      roundCounter.innerHTML = `Hra skončila remízou <br><b>${userResults} = ${compuerResults}</b>`;
+      roundCounter.innerHTML = `Hra skončila remízou <br><b>${userResults} : ${computerResults}</b>`;
       roundCounter.style.color = "#2266BC";
       roundCounter.style.fontSize = "1.3rem";
     }
@@ -106,4 +108,8 @@ paperBtn.addEventListener("click", function () {
 
 resetBtn.addEventListener("click", function () {
   location.reload();
+});
+
+clearBtn.addEventListener("click", function () {
+  localStorage.clear();
 });

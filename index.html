@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kámen, nůžky, papír</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="game">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-section">
+      <div class="game">
         <h1 class="game-title">Kámen, nůžky, papír</h1>
         <div class="game-btns">
-            <button class="game-btn rock">Kámen</button>
-            <button class="game-btn scissors">Nůžky</button>
-            <button class="game-btn paper">Papír</button>
+          <button class="game-btn rock">Kámen</button>
+          <button class="game-btn scissors">Nůžky</button>
+          <button class="game-btn paper">Papír</button>
         </div>
         <p class="game-winner"></p>
         <p class="game-choices"></p>
         <p class="game-round">Kolo:</p>
-        <p class="game-score__human">Tvé score: </p>
+        <p class="game-score__human">Tvé score:</p>
         <p class="game-score__computer">Počítač:</p>
         <button class="game-btn restart">Restart hry</button>
+      </div>
+      <div class="game-history">
+        <div>
+            <h2 class="game-history__title">Historie výsledků</h2>
+            <div class="game-history__score">
+              <div class="game-history__score--human">
+                <h3 class="score-title">Člověk</h3>
+                <p>
+                  Lorem ipsum Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse natus voluptatem cumque consectetur, odit assumenda quam vitae eum, dolores quo veniam delectus doloribus distinctio, earum deleniti ipsa quasi eos et Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius placeat rem nam facere ut, illo, recusandae reprehenderit nostrum voluptatibus dolores perspiciatis neque commodi quaerat reiciendis accusantium velit vel dolor debitis.
+                </p>
+              </div>
+              <div class="game-history__score--computer">
+                <h3 class="score-title">Počítač</h3>
+                <p>
+                  Lorem ipsum
+                </p>
+              </div>
+            </div>
+        </div>
+        <button class="game-btn clear">Vyčistit historii</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
