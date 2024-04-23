@@ -18,10 +18,10 @@ body {
   justify-content: center;
 }
 
-.game-section{
+.game-section {
   display: flex;
-gap: 2rem;
-height: 500px;
+  gap: 2rem;
+  height: 500px;
 }
 
 .game {
@@ -68,45 +68,73 @@ height: 500px;
   text-align: center;
 }
 
-.game-round{
+.game-round {
   text-align: center;
 }
 
-.restart{
+.restart {
   display: none;
 }
 
-.game-history{
+.game-history {
   background-color: white;
-  padding: 3rem;
+  padding: 3rem 3rem 0;
   text-align: center;
   border-radius: 15px;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-overflow-y: scroll;
-
+  overflow-y: hidden;
 }
 
-.game-history::-webkit-scrollbar{
-  width: 10px;
- border-radius: 2px;
-}
-.game-history::-webkit-scrollbar-thumb{
-  background-color: #2266bc;
-  width: 50px;
-  border-radius: 2px;
+.score-title-flex {
+  padding: 1rem 0 0 0;
+  display: flex;
+  justify-content: space-around;
 }
 
-.game-history__score{
-  padding: 1rem 0;
+.game-history__score {
+  padding: 0 .4rem 0 1rem;
   display: flex;
   width: 250px;
-  justify-content: space-between;
+  justify-content: space-around;
+  overflow-y: auto;
+  text-align: center;
 }
 
-.score-title{
+.game-history__score::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 20px;
+}
+
+.game-history__score::-webkit-scrollbar-thumb {
+  background-color: #12be2d;
+  border-radius: 20px;
+}
+
+.score-title {
   padding-bottom: 1rem;
-  
+  position: sticky;
+  top: 0;
+}
+
+.clear {
+  position: sticky;
+  bottom: 20px;
+}
+
+.game-history__title {
+  position: sticky;
+}
+
+.score-text {
+  height: 270px;
+  text-align: center;
+}
+
+.results {
+  display: flex;
+  justify-content: space-around;
+  padding: 3px 0 2rem 0;
 }

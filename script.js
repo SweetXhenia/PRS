@@ -90,6 +90,20 @@ function playRound(tah) {
       roundCounter.style.fontSize = "1.3rem";
     }
 
+    let userHistoryScore = document.getElementById("human");
+    let computerHistoryScore = document.getElementById("computer");
+
+    let score = [{ human: userResults, computer: computerResults }];
+    let scoreFromLocalSt = JSON.parse(localStorage.getItem("score"));
+    let scoreToSave = JSON.stringify(score);
+
+    if (scoreFromLocalSt) {
+      scoreToSave = scoreToSave + JSON.stringify(scoreFromLocalSt);
+      console.log(scoreToSave);
+    } else {
+      localStorage.setItem("score", scoreToSave);
+    }
+
     resetBtn.style.display = "inline-block";
   }
 }
