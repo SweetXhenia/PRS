@@ -21,7 +21,7 @@ let round20 = document.querySelector(".rounds20");
 roundButtons.forEach(function(button){
   button.addEventListener("click", function(){
     roundButtons.forEach(function(btn){
-      btn.style.opacity = "0.3"
+      btn.style.opacity = "0.2"
     })
     this.style.opacity = "1"
   })
@@ -174,7 +174,17 @@ function playRound(tah) {
 
     resetBtn.style.display = "inline-block";
   }
+
+  let paragraph = document.createElement("p")
+  paragraph.textContent = userResults.length -1
+  document.querySelector(".score-text").appendChild(paragraph)
 }
+
+
+
+
+
+
 
 //?-------tlačítko pro kámen, pokud člověk zvolí kámen, spustí se funkce playRound
 rockBtn.addEventListener("click", function () {
