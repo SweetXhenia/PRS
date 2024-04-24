@@ -197,4 +197,8 @@ resetBtn.addEventListener("click", function () {
 //?    pokud člověk chce vymazat historii svých kol
 clearBtn.addEventListener("click", function () {
   localStorage.clear(); //vymaže celkový localStorage
+  let humanScore = document.getElementById("human");
+  let computerScore = document.getElementById("computer")
+  humanScore.textContent = ""; // Vymaže text v elementu s id "human"
+  computerScore.textContent = ""; // Vymaže text v elementu s id 
 });
