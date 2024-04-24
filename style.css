@@ -28,7 +28,7 @@ body {
   background-color: white;
   padding: 3rem 5rem;
   border-radius: 15px;
-  height: 500px;
+  height: 550px;
   width: 650px;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
@@ -70,6 +70,23 @@ body {
 
 .game-round {
   text-align: center;
+}
+
+.game-rounds{
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+  align-items: center
+}
+
+.game-rounds-title{
+  font-size: 13px;
+  font-weight: 100;
+}
+
+.rounds{
+  padding:  .4rem .6rem;
+
 }
 
 .restart {
