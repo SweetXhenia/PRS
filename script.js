@@ -1,5 +1,5 @@
 let roundsPlayed = 0; //tah, který byl odehraný, nastavený na 0
-let maxRounds = 5; 
+let maxRounds = 5;
 
 let userResults = 0; //nastavení výsledku na hodnotu 0
 let computerResults = 0; //nastavení výsledku na hodnotu 0
@@ -11,24 +11,14 @@ let paperBtn = document.querySelector(".paper"); //tlačítko papír
 let resetBtn = document.querySelector(".restart"); //tlačítko resetuje hru
 let clearBtn = document.querySelector(".clear"); //tlačítko vymaže historii
 
-let gameRounds = document.querySelector(".game-rounds")
-let roundButtons = document.querySelectorAll(".rounds")
+let gameRounds = document.querySelector(".game-rounds");
+let roundButtons = document.querySelectorAll(".rounds");
 let round5 = document.querySelector(".rounds5"); //tlačítko určující maximální počet kol
 let round10 = document.querySelector(".rounds10");
 let round15 = document.querySelector(".rounds15");
 let round20 = document.querySelector(".rounds20");
 
-roundButtons.forEach(function(button){
-  button.addEventListener("click", function(){
-    roundButtons.forEach(function(btn){
-      btn.style.opacity = "0.2"
-    })
-    this.style.opacity = "1"
-  })
-})
-
 function maxPocetKol(max) {
-  
   if (max === 5) {
     maxRounds = 5;
   } else if (max === 10) {
@@ -38,30 +28,7 @@ function maxPocetKol(max) {
   } else if (max === 20) {
     maxRounds = 20;
   }
-  return maxRounds
 }
-
-round5.addEventListener("click", function () {
-  maxRounds = maxPocetKol(5);
-  console.log(maxRounds);
-});
-
-round10.addEventListener("click", function () {
-  maxRounds = maxPocetKol(10);
-  console.log(maxRounds);
-});
-
-round15.addEventListener("click", function () {
-  maxRounds = maxPocetKol(15);
-  console.log(maxRounds);
-});
-
-round20.addEventListener("click", function () {
-  maxRounds = maxPocetKol(20);
-  console.log(maxRounds);
-});
-
-
 
 //?-------Logika, která určije, co vybere počítač
 function computerChoice() {
@@ -173,18 +140,25 @@ function playRound(tah) {
     }
 
     resetBtn.style.display = "inline-block";
-  }
 
-  let paragraph = document.createElement("p")
-  paragraph.textContent = userResults.length -1
-  document.querySelector(".score-text").appendChild(paragraph)
+    let paragraphHuman = document.createElement("p");
+    paragraphHuman.textContent = userResults;
+    document.querySelector("#human").appendChild(paragraphHuman);
+
+    let paragraphComputer = document.createElement("p");
+    paragraphComputer.textContent = computerResults;
+    document.querySelector("#computer").appendChild(paragraphComputer);
+  }
 }
 
-
-
-
-
-
+roundButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    roundButtons.forEach(function (btn) {
+      btn.style.opacity = "0.2";
+    });
+    this.style.opacity = "1";
+  });
+});
 
 //?-------tlačítko pro kámen, pokud člověk zvolí kámen, spustí se funkce playRound
 rockBtn.addEventListener("click", function () {
@@ -208,7 +182,23 @@ resetBtn.addEventListener("click", function () {
 clearBtn.addEventListener("click", function () {
   localStorage.clear(); //vymaže celkový localStorage
   let humanScore = document.getElementById("human");
-  let computerScore = document.getElementById("computer")
+  let computerScore = document.getElementById("computer");
   humanScore.textContent = ""; // Vymaže text v elementu s id "human"
-  computerScore.textContent = ""; // Vymaže text v elementu s id 
+  computerScore.textContent = ""; // Vymaže text v elementu s id
+});
+
+round5.addEventListener("click", function () {
+  maxPocetKol(5);
+});
+
+round10.addEventListener("click", function () {
+  maxPocetKol(10);
+});
+
+round15.addEventListener("click", function () {
+  maxPocetKol(15);
+});
+
+round20.addEventListener("click", function () {
+  maxPocetKol(20);
 });
