@@ -125,29 +125,37 @@ function playRound(tah) {
     }
 
     //?----------localStorage pokusy
-    let userHistoryScore = document.getElementById("human");
-    let computerHistoryScore = document.getElementById("computer");
-
-    let score = [{ human: userResults, computer: computerResults }];
-    let scoreFromLocalSt = JSON.parse(localStorage.getItem("score"));
-    let scoreToSave = JSON.stringify(score);
-
-    if (scoreFromLocalSt) {
-      scoreToSave = scoreToSave + JSON.stringify(scoreFromLocalSt);
-      console.log(scoreToSave);
+    let storage = [];
+    if (localStorage.getItem("vysledky") === null) {
+      storage = [];
     } else {
-      localStorage.setItem("score", scoreToSave);
+      storage = JSON.parse(localStorage.getItem("vysledky"));
     }
 
+    storage.push({
+      clovekVysledek: userResults,
+      pocitacVysledek: computerResults,
+    });
+    let storageJSON = JSON.stringify(storage);
+    localStorage.setItem("vysledky", storageJSON);
+
+    let myStorage = localStorage.getItem("vysledky");
+    let myStorageJSON = JSON.parse(myStorage);
+
+    document.querySelector("#human").innerHTML = "";
+    document.querySelector("#computer").innerHTML = "";
+
+    myStorageJSON.forEach(function (oneResult) {
+      let paragraphHuman = document.createElement("p");
+      paragraphHuman.textContent = oneResult.clovekVysledek;
+      document.querySelector("#human").appendChild(paragraphHuman);
+
+      let paragraphComputer = document.createElement("p");
+      paragraphComputer.textContent = oneResult.pocitacVysledek;
+      document.querySelector("#computer").appendChild(paragraphComputer);
+    });
+
     resetBtn.style.display = "inline-block";
-
-    let paragraphHuman = document.createElement("p");
-    paragraphHuman.textContent = userResults;
-    document.querySelector("#human").appendChild(paragraphHuman);
-
-    let paragraphComputer = document.createElement("p");
-    paragraphComputer.textContent = computerResults;
-    document.querySelector("#computer").appendChild(paragraphComputer);
   }
 }
 
@@ -201,4 +209,31 @@ round15.addEventListener("click", function () {
 
 round20.addEventListener("click", function () {
   maxPocetKol(20);
+});
+
+/*  
+    let userHistoryScore = document.getElementById("human");
+    let computerHistoryScore = document.getElementById("computer");
+
+    let score = [{ human: userResults, computer: computerResults }];
+    let scoreFromLocalSt = JSON.parse(localStorage.getItem("score"));
+    let scoreToSave = JSON.stringify(score);
+
+    if (scoreFromLocalSt) {
+      scoreToSave = scoreToSave + JSON.stringify(scoreFromLocalSt);
+      console.log(scoreToSave);
+    } else {
+      localStorage.setItem("score", scoreToSave);
+    } */
+let myStorage = localStorage.getItem("vysledky");
+let myStorageJSON = JSON.parse(myStorage);
+
+myStorageJSON.forEach(function (oneResult) {
+  let paragraphHuman = document.createElement("p");
+  paragraphHuman.textContent = oneResult.clovekVysledek;
+  document.querySelector("#human").appendChild(paragraphHuman);
+
+  let paragraphComputer = document.createElement("p");
+  paragraphComputer.textContent = oneResult.pocitacVysledek;
+  document.querySelector("#computer").appendChild(paragraphComputer);
 });

@@ -72,21 +72,20 @@ body {
   text-align: center;
 }
 
-.game-rounds{
+.game-rounds {
   display: flex;
   flex-direction: row;
-  gap: .5rem;
-  align-items: center
+  gap: 0.5rem;
+  align-items: center;
 }
 
-.game-rounds-title{
+.game-rounds-title {
   font-size: 13px;
   font-weight: 100;
 }
 
-.rounds{
-  padding:  .4rem .6rem;
-
+.rounds {
+  padding: 0.4rem 0.6rem;
 }
 
 .restart {
@@ -113,7 +112,7 @@ body {
 }
 
 .game-history__score {
-  padding: 0 .4rem 0 1rem;
+  padding: 0 0.4rem 0 1rem;
   display: flex;
   width: 250px;
   justify-content: space-around;
