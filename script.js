@@ -18,6 +18,9 @@ let round10 = document.querySelector(".rounds10");
 let round15 = document.querySelector(".rounds15");
 let round20 = document.querySelector(".rounds20");
 
+let sum1 = 0;
+let sum2 = 0;
+
 function maxPocetKol(max) {
   if (max === 5) {
     maxRounds = 5;
@@ -148,11 +151,23 @@ function playRound(tah) {
     myStorageJSON.forEach(function (oneResult) {
       let paragraphHuman = document.createElement("p");
       paragraphHuman.textContent = oneResult.clovekVysledek;
-      document.querySelector("#human").appendChild(paragraphHuman);
+      document.querySelector("#human").prepend(paragraphHuman);
 
       let paragraphComputer = document.createElement("p");
       paragraphComputer.textContent = oneResult.pocitacVysledek;
-      document.querySelector("#computer").appendChild(paragraphComputer);
+      document.querySelector("#computer").prepend(paragraphComputer);
+    });
+    let sum1 = 0;
+    let sum2 = 0;
+
+    myStorageJSON.forEach(function (oneSum) {
+      sum1 += oneSum.clovekVysledek;
+      let paragraph = document.querySelector(".results-score-human");
+      paragraph.textContent = sum1;
+
+      sum2 += oneSum.pocitacVysledek;
+      let paragraph2 = document.querySelector(".results-score-computer");
+      paragraph2.textContent = sum2;
     });
 
     resetBtn.style.display = "inline-block";
@@ -193,6 +208,10 @@ clearBtn.addEventListener("click", function () {
   let computerScore = document.getElementById("computer");
   humanScore.textContent = ""; // Vymaže text v elementu s id "human"
   computerScore.textContent = ""; // Vymaže text v elementu s id
+  let paragraph = document.querySelector(".results-score-human");
+  let paragraph2 = document.querySelector(".results-score-computer");
+  paragraph.textContent = "0";
+  paragraph2.textContent = "0";
 });
 
 round5.addEventListener("click", function () {
@@ -225,15 +244,28 @@ round20.addEventListener("click", function () {
     } else {
       localStorage.setItem("score", scoreToSave);
     } */
+
 let myStorage = localStorage.getItem("vysledky");
 let myStorageJSON = JSON.parse(myStorage);
 
 myStorageJSON.forEach(function (oneResult) {
   let paragraphHuman = document.createElement("p");
   paragraphHuman.textContent = oneResult.clovekVysledek;
-  document.querySelector("#human").appendChild(paragraphHuman);
+  document.querySelector("#human").prepend(paragraphHuman);
 
   let paragraphComputer = document.createElement("p");
   paragraphComputer.textContent = oneResult.pocitacVysledek;
-  document.querySelector("#computer").appendChild(paragraphComputer);
+  document.querySelector("#computer").prepend(paragraphComputer);
 });
+
+myStorageJSON.forEach(function (oneSum) {
+  sum1 += oneSum.clovekVysledek;
+  let paragraph = document.querySelector(".results-score-human");
+  paragraph.textContent = sum1;
+
+  sum2 += oneSum.pocitacVysledek;
+  let paragraph2 = document.querySelector(".results-score-computer");
+  paragraph2.textContent = sum2;
+});
+
+

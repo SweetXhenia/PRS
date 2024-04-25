@@ -1,3 +1,28 @@
+:root {
+  --color-primary: #12be2d;
+  --color-hover: #2266bc;
+  --color-active: #1c56a1;
+  --background-color: rgb(15, 110, 0);
+  --background-color2: linear-gradient(
+    32deg,
+    rgba(15, 110, 0, 1) 0%,
+    rgba(38, 121, 9, 1) 40%,
+    rgba(0, 255, 79, 1) 100%
+  );
+  --border-radius-small: 10px;
+  --border-radius-big: 20px;
+
+  --bp-bigger: 160em; /* 2560 */
+  --bp-big: 93.75em; /* 1500px/16 */
+  --bp-largest: 75em; /* 1200px/16 = 75 */
+  --bp-large: 68.75em; /* 1100px/16 = 68.75 */
+  --bp-mid: 56.25em; /* 900 */
+  --bp-mid-2: 50em; /* 800 */
+  --bp-small: 37.5em; /* 600 */
+  --bp-mini: 31.25em; /* 500 */
+  --bp-iphone: 25em;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,111 +31,159 @@
 
 body {
   min-height: 100vh;
-  background: rgb(15, 110, 0);
-  background: linear-gradient(
-    32deg,
-    rgba(15, 110, 0, 1) 0%,
-    rgba(38, 121, 9, 1) 40%,
-    rgba(0, 255, 79, 1) 100%
-  );
+  background: var(--background-color);
+  background: var(--background-color2);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* protože tady mám dva divy*/
 .game-section {
   display: flex;
   gap: 2rem;
-  height: 500px;
-}
 
+}
+/*| hlavní hra*/
 .game {
   background-color: white;
   padding: 3rem 5rem;
-  border-radius: 15px;
+  border-radius: var(--border-radius-big);
   height: 550px;
   width: 650px;
-  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  text-align: center;
+  @media only screen and (min-width: 160em){
+    height: 900px;
+    width: 1100px;
+  }
 }
 
 .game-title {
-  font-size: 3rem;
+  font-size: 2.9rem;
+  @media only screen and (min-width: 160em){
+    font-size: 5rem;
+  }
 }
 
+.game-btns{
+  display: flex;
+  gap: 1.3rem;
+}
+
+
+/* tlačítka všechna*/
 .game-btn {
   padding: 20px;
   font-weight: 600;
   border: none;
-  border-radius: 10px;
-  background-color: #12be2d;
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-primary);
   color: white;
   letter-spacing: 1px;
+  @media only screen and (min-width: 160em){
+    font-size: 2.2rem;
+    padding: 30px;
+  }
 }
 
 .game-btn:hover {
-  background-color: #2266bc;
+  background-color: var(--color-hover);
 }
 .game-btn:active {
-  background-color: #1c56a1;
+  background-color: var(--color-active);
 }
-
+/*tady to vypisuje vítěze jednotlivých tahů "vyhráváš", "prohráváš"*/
 .game-winner {
   font-weight: 900;
   font-size: 2rem;
+  @media only screen and (min-width: 160em){
+   font-size: 4rem; 
+  }
 }
 
+/*vypisuje co vybral člověk a počítač*/
 .game-choices {
   font-style: italic;
-  text-align: center;
+  @media only screen and (min-width: 160em){
+    font-size: 2rem;
+  }
 }
 
-.game-round {
-  text-align: center;
+.game-round{
+  @media only screen and (min-width: 160em){
+   font-size: 2rem; 
+  }
 }
 
+.game-score__human{
+  @media only screen and (min-width: 160em){
+   font-size: 2rem; 
+  }
+}
+
+.game-score__computer{
+  @media only screen and (min-width: 160em){
+   font-size: 2rem; 
+  }
+}
+
+/*toto jsou tlačítka pro volbu počtu tahů*/
 .game-rounds {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
   align-items: center;
+  @media only screen and (min-width: 160em){
+    gap: 1rem;
+  }
 }
 
 .game-rounds-title {
   font-size: 13px;
   font-weight: 100;
+  @media only screen and (min-width: 160em){
+   font-size: 1.5rem; 
+  }
 }
-
+/*tlačítka pro počet kol*/
 .rounds {
   padding: 0.4rem 0.6rem;
+  @media only screen and (min-width: 160em){
+    font-size: 1.8rem;
+  }
 }
 
+/*tlačítko pro restart hry*/
 .restart {
   display: none;
 }
 
+/*nastavení pro celou sekci historie*/
 .game-history {
   height: 550px;
   background-color: white;
   padding: 3rem 3rem 0;
   text-align: center;
-  border-radius: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  border-radius: var(--border-radius-big);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow-y: hidden;
 }
 
+/*div ve kterém jsou nadpisy výčtu score*/
 .score-title-flex {
   padding: 1rem 0 0 0;
   display: flex;
   justify-content: space-around;
 }
 
+/*konkrétní čísla historie (localStorage)*/
 .game-history__score {
   padding: 0 0.4rem 0 1rem;
   display: flex;
@@ -120,36 +193,36 @@ body {
   text-align: center;
 }
 
+/*nastavení pro scrollbar*/
 .game-history__score::-webkit-scrollbar {
   width: 10px;
-  border-radius: 20px;
+  border-radius: var(--border-radius-big);
 }
 
 .game-history__score::-webkit-scrollbar-thumb {
-  background-color: #12be2d;
-  border-radius: 20px;
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius-big);
 }
 
+/*nadpis člověk x počítač*/
 .score-title {
   padding-bottom: 1rem;
   position: sticky;
   top: 0;
 }
 
+/*tlačítko pro vymazání historie*/
 .clear {
   position: sticky;
   bottom: 20px;
 }
 
-.game-history__title {
-  position: sticky;
-}
-
+/*udává výšku výpisu score v historii*/
 .score-text {
   height: 270px;
-  text-align: center;
 }
 
+/*tohle vlastně ani nefunguje ještě :D */
 .results {
   display: flex;
   justify-content: space-around;
