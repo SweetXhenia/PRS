@@ -43,7 +43,10 @@ body {
 .game-section {
   display: flex;
   gap: 2rem;
-
+  @media only screen and (max-width: 56.25em) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 /*| hlavní hra*/
 .game {
@@ -57,24 +60,44 @@ body {
   align-items: center;
   gap: 1.5rem;
   text-align: center;
-  @media only screen and (min-width: 160em){
+  @media only screen and (min-width: 160em) {
     height: 900px;
     width: 1100px;
+  }
+  @media only screen and (max-width: 56.25em) {
+    margin-top: 1rem;
+    height: 500px;
+    width: 500px;
+  }
+  @media only screen and (max-width: 25em) {
+    padding: 2rem 2rem;
+    height: 400px;
+    width: 350px;
+
+    gap: 1rem;
   }
 }
 
 .game-title {
   font-size: 2.9rem;
-  @media only screen and (min-width: 160em){
+  @media only screen and (min-width: 160em) {
     font-size: 5rem;
+  }
+  @media only screen and (max-width: 56.25em) {
+    font-size: 2rem;
+  }
+  @media only screen and (max-width: 25em) {
+    font-size: 1.5rem;
   }
 }
 
-.game-btns{
+.game-btns {
   display: flex;
   gap: 1.3rem;
+  @media only screen and (max-width: 56.25em) {
+    gap: 0.9rem;
+  }
 }
-
 
 /* tlačítka všechna*/
 .game-btn {
@@ -85,9 +108,16 @@ body {
   background-color: var(--color-primary);
   color: white;
   letter-spacing: 1px;
-  @media only screen and (min-width: 160em){
+  @media only screen and (min-width: 160em) {
     font-size: 2.2rem;
     padding: 30px;
+  }
+  @media only screen and (max-width: 56.25em) {
+    padding: 15px;
+  }
+  @media only screen and (max-width: 25em) {
+    padding: 15px;
+    font-size: 12px;
   }
 }
 
@@ -101,34 +131,56 @@ body {
 .game-winner {
   font-weight: 900;
   font-size: 2rem;
-  @media only screen and (min-width: 160em){
-   font-size: 4rem; 
+  @media only screen and (min-width: 160em) {
+    font-size: 4rem;
+  }
+  @media only screen and (max-width: 56.25em) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 25em) {
+    font-size: 1.3rem;
   }
 }
 
 /*vypisuje co vybral člověk a počítač*/
 .game-choices {
   font-style: italic;
-  @media only screen and (min-width: 160em){
+  @media only screen and (min-width: 160em) {
     font-size: 2rem;
   }
-}
-
-.game-round{
-  @media only screen and (min-width: 160em){
-   font-size: 2rem; 
+  @media only screen and (max-width: 25em) {
+    font-size: 13px;
   }
 }
 
-.game-score__human{
-  @media only screen and (min-width: 160em){
-   font-size: 2rem; 
+.game-round {
+  font-size: 1.4rem;
+  @media only screen and (min-width: 160em) {
+    font-size: 2rem;
+  }
+  @media only screen and (max-width: 56.25em) {
+    font-size: 1.2rem;
+  }
+  @media only screen and (max-width: 25em) {
+    font-size: 13px;
   }
 }
 
-.game-score__computer{
-  @media only screen and (min-width: 160em){
-   font-size: 2rem; 
+.game-score__human {
+  @media only screen and (min-width: 160em) {
+    font-size: 2rem;
+  }
+  @media only screen and (max-width: 25em) {
+    font-size: 13px;
+  }
+}
+
+.game-score__computer {
+  @media only screen and (min-width: 160em) {
+    font-size: 2rem;
+  }
+  @media only screen and (max-width: 25em) {
+    font-size: 13px;
   }
 }
 
@@ -138,7 +190,7 @@ body {
   flex-direction: row;
   gap: 0.5rem;
   align-items: center;
-  @media only screen and (min-width: 160em){
+  @media only screen and (min-width: 160em) {
     gap: 1rem;
   }
 }
@@ -146,14 +198,17 @@ body {
 .game-rounds-title {
   font-size: 13px;
   font-weight: 100;
-  @media only screen and (min-width: 160em){
-   font-size: 1.5rem; 
+  @media only screen and (min-width: 160em) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 25em) {
+    font-size: 12px;
   }
 }
 /*tlačítka pro počet kol*/
 .rounds {
   padding: 0.4rem 0.6rem;
-  @media only screen and (min-width: 160em){
+  @media only screen and (min-width: 160em) {
     font-size: 1.8rem;
   }
 }
@@ -174,6 +229,30 @@ body {
   flex-direction: column;
   justify-content: space-between;
   overflow-y: hidden;
+  @media only screen and (min-width: 160em) {
+    height: 900px;
+  }
+  @media only screen and (max-width: 56.25em) {
+    height: 300px;
+    padding: 2rem 2rem 0;
+    width: 500px;
+  }
+  @media only screen and (max-width: 25em) {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+.game-history__title {
+  @media only screen and (min-width: 160em) {
+    font-size: 2rem;
+  }
+  @media only screen and (max-width: 56.25em) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 25em) {
+    font-size: 1.2rem;
+  }
 }
 
 /*div ve kterém jsou nadpisy výčtu score*/
@@ -181,6 +260,15 @@ body {
   padding: 1rem 0 0 0;
   display: flex;
   justify-content: space-around;
+  @media only screen and (min-width: 160em) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 56.25em) {
+    font-size: 15px;
+  }
+  @media only screen and (max-width: 25em) {
+    font-size: 10px;
+  }
 }
 
 /*konkrétní čísla historie (localStorage)*/
@@ -191,6 +279,20 @@ body {
   justify-content: space-around;
   overflow-y: auto;
   text-align: center;
+  @media only screen and (min-width: 160em) {
+    font-size: 1.7rem;
+    width: 300px;
+    height: 550px;
+  }
+  @media only screen and (max-width: 56.25em) {
+    height: 70px;
+    width: 450px;
+  }
+  @media only screen and (max-width: 25em) {
+    font-size: 15px;
+    width: 300px;
+    height: 130px;
+  }
 }
 
 /*nastavení pro scrollbar*/
@@ -227,4 +329,10 @@ body {
   display: flex;
   justify-content: space-around;
   padding: 3px 0 2rem 0;
+  @media only screen and (min-width: 160em) {
+    font-size: 2.3rem;
+  }
+  @media only screen and (max-width: 56.25em) {
+    font-size: 1.2rem;
+  }
 }

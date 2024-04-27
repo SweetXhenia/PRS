@@ -93,7 +93,7 @@ function playRound(tah) {
     //změní text na tyto styly
     text.textContent = "Výsledky";
     text.style.color = "#2266BC";
-    text.style.fontSize = "1.5rem";
+    
 
     //přestane zobrazovat tlačítka
     rockBtn.style.display = "none";
@@ -114,17 +114,17 @@ function playRound(tah) {
       //změní se tyto styly
       roundCounter.innerHTML = `Prohrál jsi s počítačem <br><b>${computerResults} : ${userResults}</b>`; //vypíše score
       roundCounter.style.color = "red";
-      roundCounter.style.fontSize = "1.3rem";
+     
     } else if (computerResults < userResults) {
       //todo pokud počítač prohrál
       roundCounter.innerHTML = `Vyhrál jsi proti počítači <br><b>${userResults} : ${computerResults}</b>`; //vypíše score
       roundCounter.style.color = "green";
-      roundCounter.style.fontSize = "1.3rem";
+      
     } else {
       //todo pokud hra skončila remízou
       roundCounter.innerHTML = `Hra skončila remízou <br><b>${userResults} : ${computerResults}</b>`; //vypíše score
       roundCounter.style.color = "#2266BC";
-      roundCounter.style.fontSize = "1.3rem";
+     
     }
 
     //?----------localStorage pokusy
